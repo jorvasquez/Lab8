@@ -1,4 +1,8 @@
 package logicaDeNegocios;
+//import java.util.*;
+import java.text.*;
+import java.util.Date.*;
+import java.sql.*;
 
 
 /**
@@ -10,15 +14,18 @@ package logicaDeNegocios;
 public class Prestamo
 {
     // instance variables - replace the example below with your own
-    private int x;
-
+    private Date fechaPrestamo;
+    private Date fechaEntrega;
+    
     /**
      * Constructor for objects of class Prestamo
      */
     public Prestamo()
     {
         // initialise instance variables
-        x = 0;
+        setFechaPrestamo(pFPrest);
+        setFechaEntrega(pFEntr);
+        //Formato debe estar en ss-MM-yyyy
     }
 
     /**
@@ -27,9 +34,17 @@ public class Prestamo
      * @param  y   a sample parameter for a method
      * @return     the sum of x and y 
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    private void setFechaPrestamo(String pFPrest){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        String dateInString = pFPrest;
+        try {
+             Date date = formatter.parse(dateInString);
+             per.setFecha_nacimiento(date);
+        } catch (ParseException e) {
+             e.printStackTrace();
+        }
+    }
+    private void setFechaEntrega(String pFEntr){
+        //pFEntr
     }
 }

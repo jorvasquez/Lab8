@@ -10,15 +10,16 @@ package logicaDeNegocios;
 public class Autor
 {
     // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Autor
-     */
-    public Autor()
+    private String nombre;
+    private String nacionalidad;
+    private int identificador = 0;
+    
+    public Autor(String pNombre, String pNac, int pIdentificador)
     {
         // initialise instance variables
-        x = 0;
+        setNombre(pNombre);
+        setNacionalidad(pNac);
+        identificador++;
     }
 
     /**
@@ -27,9 +28,23 @@ public class Autor
      * @param  y   a sample parameter for a method
      * @return     the sum of x and y 
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    private void setNombre(String pNombre){
+            nombre = pNombre;
+        }
+        
+    private void setNacionalidad(String pNac){
+        nacionalidad = pNac;
+    }
+    
+    private String getNombre(){
+        return nombre;
+    }
+    
+    private String getNacionalidad(){
+        return nacionalidad;
+    }
+    
+    private int getIdentificador(){
+        return identificador;
     }
 }
