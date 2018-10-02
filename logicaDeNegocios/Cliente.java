@@ -9,27 +9,34 @@ package logicaDeNegocios;
  */
 public class Cliente
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Cliente
-     */
-    public Cliente()
-    {
-        // initialise instance variables
-        x = 0;
+  private String cedula;
+  private String nombre;
+  private String direccion;
+  public Cliente(String pNombre, String pCedula, String pDireccion)
+  {
+    setNombre(pNombre);
+    setCedula(pCedula);
+    setDireccion(pDireccion);  
+  }
+  public void registrarNuevoPrestamo(Libro pLibro){
+    
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+  public void setCedula(String pCedula){
+    cedula=pCedula;
+   }
+  public String getCedula(){
+    return cedula; 
+   }
+  public void setNombre(String pNombre){
+    nombre=pNombre;
+   }
+  public String getNombre(){
+    return nombre; 
+   }
+  public void setDireccion(String pDireccion){
+    direccion=pDireccion;
+   }
+  public String getDireccion(){
+    return direccion; 
+   }
 }
