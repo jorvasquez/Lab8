@@ -10,15 +10,25 @@ package logicaDeNegocios;
 public class Libro
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private String nombre;
+    private String editorial;
+    private int annoPublicacion;
+    private int identificador = 0;
+    private int cantidadEjemplares;
 
     /**
      * Constructor for objects of class Libro
      */
-    public Libro()
+    public Libro(String pNombre, String pEditorial, int pAnnoPub, int pIdentificador, int pCantEjem)
     {
         // initialise instance variables
-        x = 0;
+        setNombre(pNombre);
+        setEditorial(pEditorial);
+        setAnnoPublicacion(pAnnoPub);
+        identificador++;
+        setCantidadEjemplares(pCantEjem);
+        
+
     }
 
     /**
@@ -27,9 +37,40 @@ public class Libro
      * @param  y   a sample parameter for a method
      * @return     the sum of x and y 
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    private void setNombre(String pNombre){
+            nombre = pNombre;
+        }
+        
+    private void setEditorial(String pEditorial){
+        editorial = pEditorial;
+    }
+    
+    private void setAnnoPublicacion(int pAnnoPub){
+        annoPublicacion = pAnnoPub;
+    }
+    
+    private void setCantidadEjemplares(int pCantEjem){
+        cantidadEjemplares = pCantEjem;
+    }
+        
+    
+    private String getNombre(){
+        return nombre;
+    }
+    
+    private String getEditorial(){
+        return editorial;
+    }
+    
+    private int getAnnoPublicacion(){
+        return annoPublicacion;
+    }
+    
+    private int getIdentificador(){
+        return identificador;
+    }
+    
+    private int getCantidadEjemplares(){
+        return cantidadEjemplares;
     }
 }
