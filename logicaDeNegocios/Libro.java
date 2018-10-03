@@ -1,5 +1,5 @@
 package logicaDeNegocios;
-
+import java.util.ArrayList;
 
 /**
  * Write a description of class Libro here.
@@ -13,64 +13,97 @@ public class Libro
     private String nombre;
     private String editorial;
     private int annoPublicacion;
-    private int identificador = 0;
-    private int cantidadEjemplares;
+    private int identificador;
+    private int cantidadEjemplares=1;
+    private ArrayList<Autor> autores;
 
     /**
      * Constructor for objects of class Libro
      */
-    public Libro(String pNombre, String pEditorial, int pAnnoPub, int pIdentificador, int pCantEjem)
+    public Libro(String pNombre,int identificador,Autor pAutor)
     {
-        // initialise instance variables
-        setNombre(pNombre);
-        setEditorial(pEditorial);
-        setAnnoPublicacion(pAnnoPub);
-        identificador++;
-        setCantidadEjemplares(pCantEjem);
-        
-
+      // initialise instance variables
+      setNombre(pNombre);
+      setIdentificador(identificador);
+      autores.add(pAutor);
     }
+  public void agregarAutor(Autor pAutor){
+    for(int n=0; n<autores.size();n++){
+      if (pAutor.equals(autores.get(n))){
+          return;
+      }
+      }
+    autores.add(pAutor);
+   }
+  public boolean equals(Object o){
+    if (o==this){
+      return true;
+    }
+    if (o==null){
+      return false;
+    }
+    if (this.getClass()!=o.getClass()){
+      return false;
+    }
+    Libro libro= (Libro) o;
+    return (this.nombre.equals(libro.getNombre()) && this.annoPublicacion==libro.getAnnoPublicacion()
+    &&  this.editorial.equals(libro.getEditorial()));
+  }
 
-    /**
+  /**
      * An example of a method - replace this comment with your own
      * 
      * @param  y   a sample parameter for a method
      * @return     the sum of x and y 
      */
     private void setNombre(String pNombre){
-            nombre = pNombre;
-        }
-        
-    private void setEditorial(String pEditorial){
+       nombre = pNombre;
+    }
+    
+  public String toString(){
+    String msg="";
+    msg+="Nombre del libro:"+nombre+'\n';
+    msg+="Editorial:"+editorial+'\n';
+    msg+="Año de publicacion:"+annoPublicacion+'\n';
+    msg+="Identificador"+identificador+'\n';
+    msg+="Cantidad de ejemplares:"+cantidadEjemplares+'\n';
+    for(int n=0; n<autores.size();n++){
+      msg+="Autor #"+n+": "+autores.get(n).toString();
+    }    
+    return msg;
+    }
+    public void setEditorial(String pEditorial){
         editorial = pEditorial;
     }
     
-    private void setAnnoPublicacion(int pAnnoPub){
+    public void setAnnoPublicacion(int pAnnoPub){
         annoPublicacion = pAnnoPub;
     }
     
-    private void setCantidadEjemplares(int pCantEjem){
+    public void setCantidadEjemplares(int pCantEjem){
         cantidadEjemplares = pCantEjem;
     }
         
     
-    private String getNombre(){
+    public String getNombre(){
         return nombre;
     }
     
-    private String getEditorial(){
-        return editorial;
+    public String getEditorial(){
+      return editorial;
     }
     
-    private int getAnnoPublicacion(){
+    public int getAnnoPublicacion(){
         return annoPublicacion;
     }
-    
-    private int getIdentificador(){
+    public void setIdentificador(int pIdentificador){
+      identificador=pIdentificador;
+    }
+    public int getIdentificador(){
         return identificador;
     }
     
-    private int getCantidadEjemplares(){
+    public int getCantidadEjemplares(){
         return cantidadEjemplares;
     }
 }
